@@ -5,6 +5,7 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 ### Data Dictionary
 | Column  | Description | Potential Values |
 | ------ |  ----------- | ----------------
-| Timestamp  | Indicates the month and year for which the unemployment rate is being reported  | Every combination of a month (Jan-Dec), followed by a year (1950-2022).  For 2022, only months Jan-Aug are valid. |
-| Male  | Provides the reported unemployment rate amongst males in the United States for the given timestamp | A non-negative percentage between 0 and 100. |
-| Female | Provides the reported unemployment rate amongst females in the United States for the given timestamp | A non-negative percentage between 0 and 100. |
+| Timestamp  | Indicates the date and time that the tweet was published | Any time/date between 01/17/2022-07/19/2022. |
+| Embedded Text  | The contents of the tweet that relate to climate change | A string of texts with <= 280 characters. |
+| Likes | The amount of likes that the tweet received  | Any integer from 1-9450. |
+| Retweets |  The amount of retweets that the tweet received | Any integer value from 1-20.6K |
