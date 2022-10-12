@@ -9,3 +9,5 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 | Embedded Text  | The contents of the tweet that relate to climate change | A string of texts with <= 280 characters. |
 | Likes | The amount of likes that the tweet received  | Any integer from 1-9450. |
 | Retweets |  The amount of retweets that the tweet received | Any integer value from 1-20.6K |
+| Popularity |  Based on the number of likes, determines how popular the tweets are  |Score from 1-5, 1 being the least popular |
+
