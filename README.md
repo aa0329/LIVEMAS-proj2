@@ -1,5 +1,10 @@
 # Analysis of Climate Change Sentiment in 2022
 
+## SRC
+### Installing / Building the Code
+
+### Code Usage
+
 ## DATA
 Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9origephit/climate-change-tweets).
 ### Data Dictionary
@@ -11,3 +16,6 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 | Retweets |  The amount of retweets that the tweet received | Any integer value from 1-20.6K |
 | Popularity |  Based on the number of likes, determines how popular the tweets are  |Score from 1-5, 1 being the least popular |
 
+## FIGURES
+
+## REFERENCES
