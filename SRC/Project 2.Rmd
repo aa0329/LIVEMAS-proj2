@@ -1,0 +1,202 @@
+---
+title: "Project 2"
+author: "Madeleine Ashby"
+date: "10/12/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Import necessary libraries / packages
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(tstools)
+library(zoo)
+library(ggwordcloud)
+library(tidytext)
+library(textdata)
+```
+
+# Hypothesis
+
+Using sentiment analysis performed on climate change tweets globally, at least 75% of the tweets will be classified as negative sentiment.
+
+
+# Exploratory Data Analysis
+
+## Data Collection
+
+In order to explore our hypothesis, we needed to find Twitter datasets about climate change. The data we are using was obtained from Kaggle and can be found at this [link](https://www.kaggle.com/datasets/die9origephit/climate-change-tweets).  The data lists the top Tweets about climate change and initially consists of 11 columns.
+
+## Data Cleaning
+```{r}
+# Load in data
+climate_change <- read_excel("C:/Users/Maddie/Documents/DS 4002/Project 2/ClimateChange.xlsx")
+
+# Clean up whack characters
+climate_change$Embedded_text <- gsub("â€™", "'", climate_change$Embedded_text)
+climate_change$Embedded_text <- gsub("â€œ", " ", climate_change$Embedded_text)
+
+
+# Drop unnecessary columns
+climate_change <- climate_change[-c(1,2,4,6,7,10,11)]
+
+# Rename columns
+climate_change <- climate_change %>%
+  rename(
+    `Embedded Text` = Embedded_text
+  )
+```
+
+```{r}
+# Popularity Rating based on Likes
+climate_change <- climate_change %>%
+  mutate(Popularity = ifelse(Likes <=1890, 1,
+                             ifelse(Likes <= 3780, 2,
+                                    ifelse(Likes <= 5670, 3,
+                                           ifelse(Likes <= 7560, 4, 5)))))
+```
+
+
+```{r}
+# Number of Tweets about Climate Change from 1/1/2022 to 7/17/2022
+nrow(climate_change)
+```
+
+```{r}
+# Barplot of number of tweets per popularity group
+ggplot(climate_change, aes(x=Popularity)) + geom_bar() + theme_minimal() + ggtitle("Number of Tweets per Popularity Level")
+```
+
+```{r}
+# Number of tweets per month
+climate_change$Timestamp <- format(as.Date(climate_change$Timestamp), "%Y-%m")
+ggplot(climate_change, aes(x=Timestamp)) + geom_histogram(bins=7, stat="count") +
+  ggtitle("Number of Tweets per Month") + xlab("Month") + ylab("Count")
+
+```
+
+# Analysis
+
+```{r}
+#Prepare data for sentiment analysis
+
+# Make all text in one string
+all_climate_text <- toString(climate_change$`Embedded Text`)
+all_climate_text <- as.data.frame(all_climate_text)
+all_climate_text <- all_climate_text %>%
+  rename(
+    text = all_climate_text
+  )
+
+# Tokenize (make each word its own column)
+all_climate_text <- all_climate_text %>%
+  unnest_tokens(word, text)
+
+# Remove stop words
+all_climate_text <- all_climate_text %>%
+  anti_join(stop_words)
+
+# Remove duplicates
+no_duplicates <- all_climate_text$word[!duplicated(all_climate_text$word)]
+no_duplicates <- as.data.frame(no_duplicates)
+
+# Rename column 
+no_duplicates <- no_duplicates %>% 
+  rename(
+    word = no_duplicates
+  )
+```
+
+## AFINN Sentiment Analysis
+```{r}
+# Create a table ith words and sentiment rating
+climate_change_afinn <- no_duplicates %>%
+  inner_join(get_sentiments("afinn"))
+
+# Understand
+summary(climate_change_afinn)
+
+# Visualize
+ggplot(data = climate_change_afinn,
+       aes(x=value)
+        )+
+  geom_histogram()+
+  ggtitle("Climate Change AFINN Sentiment Range")+
+  theme_light()
+
+# To test hypothesis: 64.01% negative
+temp_count <- 0
+
+for (x in 1:nrow(climate_change_afinn)){
+  if (climate_change_afinn$value[x] < 0){
+    temp_count <- temp_count + 1
+  }
+}
+
+print(temp_count/nrow(climate_change_afinn))
+
+```
+
+## NRC Sentiment Analysis
+```{r}
+# Create table with words and sentiment description
+climate_change_nrc <- no_duplicates %>%
+  inner_join(get_sentiments("nrc"))
+
+# Visualize
+table(climate_change_nrc$sentiment)
+ggplot(climate_change_nrc, aes(x=sentiment)) + geom_bar() + theme_minimal() + ggtitle("Frequency per NRC Sentiment Category")
+
+# To test hypothesis: 56.97% negative
+# Negative sentiment: anger, disgust, fear, negative, sadness, anticipation
+print((613 + 470 + 748 + 1516 + 610) / nrow(climate_change_nrc))
+
+```
+
+## Bing Sentiment Analysis
+```{r}
+# Create a table with words and sentiment description
+climate_change_bing <- no_duplicates %>%
+  inner_join(get_sentiments("bing"))
+
+# Visualize
+table(climate_change_bing$sentiment)
+ggplot(climate_change_bing, aes(x=sentiment)) + geom_bar() + theme_minimal() + ggtitle("Frequency per Bing Sentiment Category")
+
+# To test hypothesis:67.43% negative sentiment
+print(1706/(1706+824))
+
+```
+
+## TF Analysis
+```{r}
+# Calculate word count for each word
+word_count <- all_climate_text %>%
+  count(word, sort = TRUE)
+
+# Calculate total number of words
+total_words <- word_count %>%
+  summarize(total = sum(n))
+
+# Join values together
+climate_words <- left_join(word_count, total_words, by = character())
+
+# Temporary variables for computing term frequency
+freq <- 1:35134
+tf <- data.frame(word_count$word, freq)
+
+for (x in 1:nrow(climate_words)) {
+  tf$freq[x] <- word_count$n[x] / 263492
+}
+
+# Add term frequency to climate_words data frame
+climate_words <- mutate(climate_words, term_frequency = tf$freq)
+```
+
+
+
