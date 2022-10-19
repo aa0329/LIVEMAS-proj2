@@ -2,8 +2,10 @@
 
 ## SRC
 ### Installing / Building the Code
+To install the code, download the RMD file in the SRC folder. Open this in RStudio and run the code. All of the libraries that need to be installed are already included at the top of the file, so the code solely needs to be ran to successfully build the code. 
 
 ### Code Usage
+This code can be used to understand different attitudes towards climate change. 
 
 ## DATA
 Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9origephit/climate-change-tweets).
@@ -19,3 +21,6 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 ## FIGURES
 
 ## REFERENCES
+[Milestone 1: Creating a Hypothesis](https://docs.google.com/document/d/1iab8vQS97yk5T3rzESs86RILw8knzaKODZ6kapU4sMc/edit?usp=sharing)
+
+[Milestone 2: Exploratory Data Analysis & Analysis Plan](https://docs.google.com/document/d/1Y3M5PIjCS9c8360Ezs0bDVY6BEs92JIG1a5HZvdqsrY/edit?usp=sharing)
