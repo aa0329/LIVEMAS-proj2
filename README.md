@@ -21,9 +21,12 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 ## FIGURES
 | Figure Number | Figure Name | Key Takeaways |
 | ----------- | ------ |  ----------- |
-Figure 1 |  Number of Tweets per Popularity Level | The majority of tweets lie in popularity level 1
+Figure 1 | Number of Tweets per Popularity Level | The majority of tweets lie in popularity level 1
 Figure 2 | Number of Tweets per Month | July saw the most Tweets about climate change
-Figure 3 | title | takeaway
+Figure 3 | Climate Change AFINN Sentiment Range | The sentiment is skewed negative
+Figure 4 | Frequency per NRC Sentiment Category | Other than positive and negative, the most common emotion was fear
+Figure 5 | Frequency per Bing Sentiment Category | The majority of tweets were classified as having negative sentiment
+
 ## REFERENCES
 [Milestone 1: Creating a Hypothesis](https://docs.google.com/document/d/1iab8vQS97yk5T3rzESs86RILw8knzaKODZ6kapU4sMc/edit?usp=sharing)
 
