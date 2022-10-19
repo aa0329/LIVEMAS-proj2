@@ -21,7 +21,9 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 ## FIGURES
 | Figure Number | Figure Name | Key Takeaways |
 | ----------- | ------ |  ----------- |
-Figure 1 |  title | takeaways
+Figure 1 |  Number of Tweets per Popularity Level | The majority of tweets lie in popularity level 1
+Figure 2 | Number of Tweets per Month | July saw the most Tweets about climate change
+Figure 3 | title | takeaway
 ## REFERENCES
 [Milestone 1: Creating a Hypothesis](https://docs.google.com/document/d/1iab8vQS97yk5T3rzESs86RILw8knzaKODZ6kapU4sMc/edit?usp=sharing)
 
