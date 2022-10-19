@@ -28,3 +28,11 @@ Figure 3 | title | takeaway
 [Milestone 1: Creating a Hypothesis](https://docs.google.com/document/d/1iab8vQS97yk5T3rzESs86RILw8knzaKODZ6kapU4sMc/edit?usp=sharing)
 
 [Milestone 2: Exploratory Data Analysis & Analysis Plan](https://docs.google.com/document/d/1Y3M5PIjCS9c8360Ezs0bDVY6BEs92JIG1a5HZvdqsrY/edit?usp=sharing)
+
+[1] United Nations, “What is climate change?,” United Nations. [Online]. Available: https://www.un.org/en/climatechange/what-is-climate-change. [Accessed: 05-Oct-2022]. 
+
+[2] “United in Science: We are Heading in the Wrong Direction,” Unfccc.int. [Online]. Available: https://unfccc.int/news/united-in-science-we-are-heading-in-the-wrong-direction. [Accessed: 05-Oct-2022]. 
+
+[3] M. Jaganmohan, “Climate change as a threat 2020,” Statista, 05-May-2022. [Online]. Available: https://www.statista.com/statistics/1305680/climate-emergency-public-awareness/. [Accessed: 05-Oct-2022]. 
+
+[4] M. Jaganmohan, “Climate change as a threat 2020,” Statista, 05-May-2022. [Online]. Available: https://www.statista.com/statistics/1305680/climate-emergency-public-awareness/. [Accessed: 05-Oct-2022]. 
