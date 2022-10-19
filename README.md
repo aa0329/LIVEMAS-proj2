@@ -19,7 +19,9 @@ Our data was obtained from Kaggle [here](https://www.kaggle.com/datasets/die9ori
 | Popularity |  Based on the number of likes, determines how popular the tweets are  |Score from 1-5, 1 being the least popular |
 
 ## FIGURES
-
+| Figure Name | Key Takeaways |
+| ------ |  ----------- |
+Figure 1: title | takeaways
 ## REFERENCES
 [Milestone 1: Creating a Hypothesis](https://docs.google.com/document/d/1iab8vQS97yk5T3rzESs86RILw8knzaKODZ6kapU4sMc/edit?usp=sharing)
 
