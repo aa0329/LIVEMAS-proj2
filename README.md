@@ -36,3 +36,5 @@ Figure 3 | title | takeaway
 [3] M. Jaganmohan, “Climate change as a threat 2020,” Statista, 05-May-2022. [Online]. Available: https://www.statista.com/statistics/1305680/climate-emergency-public-awareness/. [Accessed: 05-Oct-2022]. 
 
 [4] M. Jaganmohan, “Climate change as a threat 2020,” Statista, 05-May-2022. [Online]. Available: https://www.statista.com/statistics/1305680/climate-emergency-public-awareness/. [Accessed: 05-Oct-2022]. 
+
+[5] “Twitter sentiment analysis using Python,” GeeksforGeeks, 28-Jun-2022. [Online]. Available: https://www.geeksforgeeks.org/twitter-sentiment-analysis-using-python/. [Accessed: 12-Oct-2022]. 
